@@ -9,46 +9,46 @@
 - Регистрация нового пользователя
 - Адаптивность
 
-**Структура проекта:**
-├── pages/                            # Page Object Model (POM)
-│   ├── __init__.py
-│   ├── base_page.py                  # Базовый класс с общими методами
-│   ├── auth_page.py                  # Страница авторизации
-│   ├── registration_page.py          # Страница регистрации
-│   └── recovery_page.py              # Страница восстановления пароля
-│
-├── tests/                            # Тестовые сценарии
-│   ├── __init__.py
-│   ├── test_authorization.py         # TC-001...TC-014 (авторизация)
-│   ├── test_recovery.py              # TC-018...TC-020 (восстановление пароля)
-│   ├── test_registration.py          # TC-024...TC-034 (регистрация)
-│   └── test_ui_adaptability.py       # TC-036...TC-037 (адаптивность)
-│
-├── .gitignore                        # Игнорируемые файлы для Git
-├── README.md                         # Документация проекта (этот файл)
-├── conftest.py                       # Фикстуры pytest
-├── env                               # Переменные окружения
-└── requirements                      # Список зависимостей
+*Структура проекта:*
+В директории pages/ (Page Object Model — описание страниц и их элементов):
+•	__init__.py –  инициализация пакета pages,
+•	base_page.py – базовый класс с общими методами,
+•	auth_page.py – страница авторизации,
+•	registration_page.py – страница регистрации,
+•	recovery_page.py – страница восстановления пароля.
+В директории tests/ (Тестовые сценарии — автоматизированные тесты ):
+•	__init__.py - инициализация пакета tests,
+•	test_authorization.py – авторизация (TC-001...TC-014),
+•	test_recovery.py – восстановление пароля (TC-018...TC-020),
+•	test_registration.py – регистрация (TC-024...TC-034),
+•	test_ui_adaptability.py – адаптивность (TC-036...TC-037).
+Корневые файлы:
+README.md – документация проекта,
+.gitignore – игнорируемые файлы для Git,
+conftest.py – фикстуры pytest,
+env – переменные окружения,
+requirements – список зависимостей.
 
 **Установка и настройка**
-1.	Клонирование репозитория
+Клонирование репозитория
 bash
 git clone https://github.com/irinakat1992-star/rt_project.git
 cd rt_project
-2.	Создание и активация виртуального окружения
+Создание и активация виртуального окружения
 bash
 python -m venv .venv
 Для Linux/MacOS:
 source .venv/bin/activate
 Для Windows:
 .venv\Scripts\activate
-3.	Установка зависимостей
+Установка зависимостей
 bash
 pip install -r requirements
+
 **Запуск тестов**
 *Все тесты (полный прогон)*
 bash
-pytest -v 
+pytest -v
 *Конкретный файл с тестами и print() в консоли*
 bash
 pytest -v - s tests/test_authorization.py
@@ -57,7 +57,4 @@ pytest -v - s tests/test_recovery.py
 pytest -v - s tests/test_ui_adaptability.py
 *Конкретный тест по имени*
 bash
-pytest -v tests/test_authorization.py::test_tc004_successful_email_login
-*Показать все print() в консоли*
-bash
-pytest -v -s
+pytest -v tests/test_authorization.py::test_tc004_login_email_success
